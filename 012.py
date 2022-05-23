@@ -18,25 +18,47 @@ We can see that 28 is the first triangle number to have over five divisors.
 
 What is the value of the first triangle number to have over five hundred divisors?
 """
+
+# Have a list of prime numbers that if insufficent, will update.
 import math
 
-def numDiv(n):
-    c = 0
-    upp = int(math.sqrt(n)+1)   # Only need to go until sqrt n + 1
-    for i in range(1,upp):
-        if (n%i==0):            # Check if divisor
-            if (n/i==i):
-                c = c + 1       # Case where divisors are equal
-            else:
-                c = c + 2       # If it is sqrt n, divisor has pair
+def newPrimes(upper,lower):
+    for x in range(lower,upper,2):
+        y_prime = 1
+        for y in range(2,x):
+            if (x%y==0):
+                y_prime = 0
+                break
 
-    return c
+        if y_prime == 1:
+            return x
 
-i = 0; tri = 0; div = 0
-# Loop with exit condition of 500 divisors
+
+def checkDiv(n,p):
+    i = 0; cnt = 0; p_facs = [0]*len(p); up_l = n
+    while n != 1:
+        if (n%p[i] == 0):
+            n = n/p[i]
+            cnt += 1
+            p_facs[i] = cnt
+        else:
+            cnt = 0
+            i += 1
+
+        # If primes insufficient, identify new ones
+        if (i > len(p)-1):
+            new_prime = newPrimes(up_l,p[i-1]+2)
+            p.append(new_prime)
+            p_facs.append(0)
+
+    div = math.prod([x+1 for x in p_facs])
+
+    return div, p
+
+primes = [2, 3]; i = 2; tri = 3; div = 0
 while div < 500:
-    i = i + 1
-    tri = i + tri
-    div = numDiv(tri)
+    i += 1
+    tri += i
+    div,primes = checkDiv(tri,primes)
 
 print(tri)
