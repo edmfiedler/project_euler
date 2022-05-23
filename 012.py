@@ -51,9 +51,9 @@ def checkDiv(n,p):
             p.append(new_prime)
             p_facs.append(0)
 
-    div = math.prod([x+1 for x in p_facs])
+    n_div = math.prod([x+1 for x in p_facs])
 
-    return div, p
+    return n_div, p
 
 primes = [2, 3]; i = 2; tri = 3; div = 0
 while div < 500:
