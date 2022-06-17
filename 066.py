@@ -20,7 +20,7 @@ Hence, by considering minimal solutions in x for D ≤ 7, the largest x is obtai
 Find the value of D ≤ 1000 in minimal solutions of x for which the largest value of x is obtained.
 """
 
-# Fastest way to obtain the fundamental solution to Pell's equation is by finding the trying the continued fractions of the d**0.5
+# Fastest way to obtain the fundamental solution to Pell's equation is by trying the numerator and denominator of the continued fractions of d**0.5
 
 max_x = 0
 for n in range(2,1000+1):
