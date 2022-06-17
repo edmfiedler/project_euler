@@ -18,9 +18,13 @@ for n in range(1,10000+1):
     d = 1
     
     count = 0
+    # A period ends when the value is doubled from original
     while int(sq)*2 != a:
+        # Obtain the value that +- sqrt in fraction
         m = d*a-m
+        # Obtain the new denominator
         d = (n-m**2)/d
+        # Obtain the continued fraction value
         a = int((int(sq)+m)/d)
         count += 1
     if count % 2 == 1:
