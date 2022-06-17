@@ -11,7 +11,6 @@ while len(str(9**power)) == power:
     while n < 10:
         if len(str(n**power)) == power:
             count += 1
-            print(n,n**power,power,count)
         n += 1
     power += 1
 print(count)
