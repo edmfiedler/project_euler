@@ -15,12 +15,17 @@ By listing the set of reduced proper fractions for d ≤ 1,000,000 in ascending 
 D = 1000000
 max = 0
 found = 0
+# Iterate in reverse
 for d in range(D,1,-1):
     for n in range(1,d):
+        # If greater than 3/7 skip rest
         if n/d >= 3/7:
+            # If the last is greater than max, then it was the new min
+            # Therefore, if not possible, the fraction has been found
             if (n-1)/d < max:
                 found = 1
             break
+        # Identify the fraction
         if n/d > max and d % 2 != 0:
             max = n/d
     if found == 1:
