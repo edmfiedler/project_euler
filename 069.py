@@ -23,7 +23,7 @@ for n in range(3,1000000+1):
 
 max_t = 0
 # Relative primes
-for n in range(2,100):
+for n in range(2,1000000+1):
     p_facs = []
     for f in p:
         if n % f == 0:
