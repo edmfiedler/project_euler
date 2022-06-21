@@ -23,6 +23,9 @@ Find the number of characters saved by writing each of these in their minimal fo
 Note: You can assume that all the Roman numerals in the file contain no more than four consecutive identical units.
 """
 
+# Technically could just replace all non-minimal sequences with 2 letters
+# However, more fun to create a roman numeral converter
+
 with open('txt_files/p089_roman.txt') as f:
     lines = f.readlines()
 
